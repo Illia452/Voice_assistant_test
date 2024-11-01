@@ -1,7 +1,7 @@
 from vosk import Model, KaldiRecognizer
 import pyaudio
 
-model = Model(r'C:\project\vosk-model-small-uk-v3-small') # Шлях до моделі 
+model = Model(r'C:\vosk-model-small-uk-v3-small') 
 recognizer = KaldiRecognizer(model, 16000) # розпізнавач
 
 cap = pyaudio.PyAudio()
@@ -15,7 +15,7 @@ while True:
 
     if recognizer.AcceptWaveform(data): 
         print(recognizer.Result())
-    else:
-        print(recognizer.PartialResult())
+#    else:
+#        print(recognizer.PartialResult())
 
         
