@@ -69,3 +69,9 @@ print("Фільтрований файл збережено як 'filtered_audio
 final_audio = normalize_audio(filtered_audio)
 sf.write("filtered_normalized_audio.wav", final_audio.astype(np.int16), RATE)
 print("Оброблений і нормалізований файл збережено як 'filtered_normalized_audio.wav'.")
+
+
+# Зменшення шуму за допомогою noisereduce
+aaa = nr.reduce_noise(y=final_audio, sr=RATE)
+sf.write("final.wav", aaa, RATE)  # Збереження після зменшення шуму
+print("Файл після зменшення шуму збережено як 'final.wav'.")
